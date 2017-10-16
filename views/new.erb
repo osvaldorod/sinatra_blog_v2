@@ -1,0 +1,12 @@
+<html>
+	<head>
+		<title><%= @title %></title>
+	</head>
+	<body>
+        <form action="/create" method="post">
+           <label for="title">title:</label><input type="text" name="title" ><br>
+           <label for="body">body:</label><textarea name="body" cols="100" rows="5"></textarea><br>
+           <input type="submit" value="submit">
+        </form>
+	</body>
+</html>

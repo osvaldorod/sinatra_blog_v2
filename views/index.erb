@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title><%= @title %></title>
+	</head>
+	<body>
+		<h1><%= @headline %></h1>
+		<p><%= @paragraph %></p>
+		<form action="/new" method="get">
+		<p>add a new post</p><br>
+		<input type="submit" value="New Post">
+		</form>
+		<% @posts.each do |post| %>
+		    <h2><%= post.title %></h2>
+		    <p><%= post.body %></p>
+		<% end %>
+	</body>
+</html>
