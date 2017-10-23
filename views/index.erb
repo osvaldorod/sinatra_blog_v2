@@ -29,18 +29,17 @@
 						<% end %>
 						<div class="timeline-image">
 							<img class="rounded-circle img-fluid" 
-							<% case %>
-								<% when (postCount % 5 == 0)%>
+						<% if postCount % 5 == 0 %>
 									src="img/01.jpg"
-								<% when (postCount % 5 == 1)%>
+						<% elsif postCount % 5 == 1 %>
 									src="img/02.jpg"
-								<% when (postCount % 5 == 2)%>
+						<% elsif postCount % 5 == 2 %>
 									src="img/03.jpg"
-								<% when (postCount % 5 == 3)%>
+						<% elsif postCount % 5 == 3 %>
 									src="img/04.jpg"
-								<% when (postCount % 5 == 4)%>
+						<% elsif postCount % 5 == 4 %>
 									src="img/05.jpg"
-							<% end %>
+						<% end %>
 							alt="">
 						</div>
 						<div class="timeline-panel">
