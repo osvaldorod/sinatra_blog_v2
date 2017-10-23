@@ -26,6 +26,8 @@ DataMapper.finalize
 Post.auto_upgrade!
 
 get '/new' do
+	@headline = "Your about to create a new post"
+	@paragraph = "Remember only create posts about tech!!!!!!"
 	erb :new
 end
 
@@ -34,7 +36,8 @@ post '/create' do
 	newPost.title = params[:title]
 	newPost.body =  params[:body]
 	newPost.save
-
+	@postTitle = newPost.title
+	@postBody = newPost.body
 	erb :success
 end
 
@@ -42,8 +45,8 @@ get '/' do
 	#load all posts
 	#display them
 	@title = "All posts"
-	@headline = "My life in blog"
-	@paragraph = "Follow me plz. Follow 4 Follow."
+	@headline = "Welcome to my tech blog"
+	@paragraph = "You can create posts about anything tech, only tech please!!!!!!"
 	@posts = Post.all
 
 

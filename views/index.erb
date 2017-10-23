@@ -1,17 +1,65 @@
-<html>
-	<head>
-		<title><%= @title %></title>
-	</head>
-	<body>
-		<h1><%= @headline %></h1>
-		<p><%= @paragraph %></p>
-		<form action="/new" method="get">
-		<p>add a new post</p><br>
-		<input type="submit" value="New Post">
-		</form>
-		<% @posts.each do |post| %>
-		    <h2><%= post.title %></h2>
-		    <p><%= post.body %></p>
-		<% end %>
-	</body>
-</html>
+<!-- Header -->
+<header class="masthead">
+	<div class="container">
+		<div class="intro-text">
+			<div class="intro-lead-in">
+				<%= @headline %>
+			</div>
+			<div class="intro-heading text-uppercase">
+				<%= @paragraph %>
+			</div>
+			<form action="/new" method="get">
+				<input class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit" value="New Post">
+			</form>
+		</div>
+	</div>
+</header>
+<!-- About -->
+<section id="posts">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="timeline">
+					<% postCount = 0 %>
+					<% @posts.each do |post| %>
+						<% if postCount % 2 === 0 %>
+							<li>
+						<% else %>
+							<li class="timeline-inverted">
+						<% end %>
+						<div class="timeline-image">
+							<img class="rounded-circle img-fluid" 
+							<% case %>
+								<% when (postCount % 5 == 0)%>
+									src="img/01.jpg"
+								<% when (postCount % 5 == 1)%>
+									src="img/02.jpg"
+								<% when (postCount % 5 == 2)%>
+									src="img/03.jpg"
+								<% when (postCount % 5 == 3)%>
+									src="img/04.jpg"
+								<% when (postCount % 5 == 4)%>
+									src="img/05.jpg"
+							<% end %>
+							alt="">
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="subheading">
+									<%= post.title  %>
+								</h4>
+							</div>
+							<div class="timeline-body">
+								<p class="text-muted">
+									<%= post.body %>
+								</p>
+							</div>
+						</div>
+					</li>
+					<% postCount += 1%>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
